@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+
+
+</head>
+<body >
+
+
+        <div class='admin_nav'>
+        <label><strong>Admin dashboard</strong> <a  href='/'>logout</a></label>
+       
+      
+        
+        <nav style='margin-top:0px'class='navbar'>
+            <a href ='/employers'>employers</a>
+            <a href ='/products'>products</a> 
+
+            <a href ='/admin_orders'>orders</a>
+            <a href ='/add_product_form'>add product</a>    
+            </nav>
+
+            {%for message in get_flashed_messages()%}
+            <p style='color:red;'>{{massage}}</p>
+
+            {%endfor%}
+             <form  action='search' method='post'> 
+            <input type='text' name='q' placeholder='search item' required>
+            <input type='submit' value='search' required>
+        </form>
+    </div>
+    <div style='display:flexbox; flex-direction:column;' >
+    
+ 
+    
+
+    {%if products%}
+        {% for product in products%}
+       
+        
+            <h2>{{ product.product_name }}</h2>
+            <a><img src="{{ product.image_url }}" alt="{{ product.product_name }}" width="200"></a>
+           
+            <h2>ksh {{ product.product_price }}</h2> 
+            <p>{{ product.product_description }}</p>
+            <input type='submit' value='delete item'><input type='submit' value='Edit product'>
+            
+            <br></br>
+            <br></br>
+
+     
+        {%endfor%}
+    {%else%}
+        <p>no products</p>    
+    {%endif%}
+    </div>
+    </div>
+</body>        
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class='admin_nav'>
+   <label><strong>Admin dashboard</strong> <a  href='/'>logout</a></label>
+    <nav style='margin-top:0px'class='navbar'>
+            <a href ='/employers'>employers</a>
+            <a href ='/products'>products</a> 
+
+            <a href ='/admin_orders'>orders</a>
+            <a href ='/add_product_form'>add product</a>    
+        </nav>
+    </div>
+    
+{%if admin_orders_list%}
+    {%for admin_orders in admin_orders_list%}
+        <div class="admin-order">
+            <h2>{{ admin_orders.id }}</h2>
+            <p>Customer: {{ admin_orders.customer_id }}</p>
+            <p>Order Date: {{ admin_orders.order_date }}</p>
+            <p>Status: {{ admin_orders.status }}</p>
+            <p>Total Amount: ${{ admin_orders.total_amount }}</p>
+            <p>Payment Status: {{ admin_orders.payment_status }}</p>
+        </div>
+    {%endfor%}
+{%else%}
+    <p>No orders found.</p>
+{%endif%}
+</body>
+</html>

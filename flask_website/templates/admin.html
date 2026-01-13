@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</html> 
+<body>
+    <div class='admin_nav'>
+        <label><strong>Admin dashboard</strong> <a  href='/'>logout</a></label>
+        <nav style='margin-top:0px'class='navbar'>
+            <a href ='/employers'>employers</a>
+            <a href ='/products'>products</a> 
+
+            <a href ='/admin_orders'>orders</a>
+            <a href ='/add_product_form'>add product</a>    
+        </nav>
+    </div>
+    <div class="container">
+        
+        <br></br>
+        <p>Welcome to the admin dashboard. Use the navigation links above to manage employers, products, and orders.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+
+
+</head>
+<body>
+    <header>
+        <div class='admin_nav'>
+        
+       <label><strong>Admin dashboard</strong> <a  href='/'>logout</a></label>
+        
+         <nav style='margin-top:0px'class='navbar'>
+            <a href ='/employers'>employers</a>
+            <a href ='/products'>products</a> 
+
+            <a href ='/admin_orders'>orders</a>
+            <a href ='/add_product_form'>add product</a>    
+        </nav>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+    </header>
+    <div class='form'> 
+
+            <form class='add_product_form' action='/add_product' method='POST'>
+            
+
+    
+                <label for='product_name' > name: </label> 
+                <input type='text' name='product_name' placeholder='Enter name of the product' required><br></br>
+                <label for='product_price' > price: </label>
+                <input type='text' name='product_price' placeholder='Enter price' required> <br></br>
+                <label for='product_description' > description: </label>
+                <input type='text' name='product_description' placeholder='Enter description' required> <br></br>
+                <label for='image_url' > image url: </label>
+                <input type='text' name='image_url' placeholder='Enter image url' required> <br></br>
+                <button style='margin-left:9px;'>Add product</button> 
+            
+            </form>
+        </div>
+
+    
+    
+</body>        
+</html>
