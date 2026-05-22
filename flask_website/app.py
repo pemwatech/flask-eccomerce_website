@@ -19,7 +19,3 @@ initialize_db()
 
 
 
-if __name__ == '__main__':
-    # Run the app in debug mode
-    app.run(debug=True,host='0.0.0.0')
-
